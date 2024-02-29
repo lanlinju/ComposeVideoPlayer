@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeVideoPlayer"
 include(":app")
- 
+include(":videoplayer")
