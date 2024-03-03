@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ComposeVideoPlayer</string>
+    <string name="txt_empty_result">Oops...! we couldn\'t find the video</string>
+    <string name="back">返回</string>
+    <string name="lbl_retry">重试</string>
+    <string name="video_error_msg">视频加载失败</string>
+    <string name="video_ended_msg">视频播放完毕</string>
+    <string name="fast_forward_2x">2x倍速中</string>
+    <string name="brightness">brightness</string>
+    <string name="volume_mute">volume mute</string>
+    <string name="volume_up">volume up</string>
 </resources>

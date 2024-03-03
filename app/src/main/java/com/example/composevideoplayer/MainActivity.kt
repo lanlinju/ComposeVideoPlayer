@@ -6,10 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.composevideoplayer.navigation.Screen
+import com.example.composevideoplayer.navigation.VideoNavHost
 import com.example.composevideoplayer.ui.theme.ComposeVideoPlayerTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,25 +22,18 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+                    VideoNavHost(
+                        navController = navController,
+                        onNavigationToVideoPlay = { url, title ->
+                            navController.navigate(Screen.VideoPlayScreen.passUrl(url, title))
+                        },
+                        onBackClick = { navController.popBackStack() },
+                        activity = this
+                    )
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeVideoPlayerTheme {
-        Greeting("Android")
-    }
-}
